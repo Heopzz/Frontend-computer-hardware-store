@@ -67,6 +67,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+
+          },
           "configurations": {
             "production": {
               "browserTarget": "Secondapp:build:production"
@@ -103,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "fb16271a-fc7e-4aa6-89a1-110ac48fcfd1"
   }
 }

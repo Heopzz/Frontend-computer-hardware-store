@@ -1,0 +1,24 @@
+<nb-card>
+  <nb-card-header>Добавить товар</nb-card-header>
+  <nb-card-body>
+    <div>
+      <input nbInput placeholder="Название товара" [(ngModel)]="product.name">
+    </div>
+    <div>
+      <input nbInput placeholder="Цена" type="number" [(ngModel)]="product.price">
+    </div>
+    <div>
+      <input nbInput placeholder="Описание" [(ngModel)]="product.description">
+    </div>
+    <div>
+      <input nbInput placeholder="Количество" type="number" [(ngModel)]="product.quantity">
+    </div>
+    <div>
+      <input nbInput placeholder="URL изображения" [(ngModel)]="product.imageUrl">
+    </div>
+  </nb-card-body>
+  <nb-card-footer>
+    <button nbButton status="primary" (click)="addProduct()">Добавить</button>
+    <button nbButton status="secondary" (click)="cancel()">Отмена</button>
+  </nb-card-footer>
+</nb-card>

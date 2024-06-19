@@ -1,0 +1,41 @@
+<nb-layout class="layout" >
+
+
+  <nb-layout-header>
+
+
+      <button  nbButton status="success" class="title_button" (click)="goToHome()"  >Главная</button>
+
+      <span class="items"></span>
+
+      <button nbButton class="icon-excel" (click)="goToCart()">
+        Корзина
+        <nb-icon icon="shopping-cart"></nb-icon>
+        <span *ngIf="itemCount" class="badge">{{itemCount}}</span>
+        </button>
+         <button nbButton="hero" class="button_login" (click)="logout()"  >Выйти</button>
+
+
+  </nb-layout-header>
+
+  <nb-layout-column>
+
+    <app-sort-module></app-sort-module>
+
+
+
+
+    <app-crad-goods></app-crad-goods>
+
+
+  </nb-layout-column>
+
+  <nb-layout-footer></nb-layout-footer>
+
+
+
+</nb-layout>
+
+
+
+

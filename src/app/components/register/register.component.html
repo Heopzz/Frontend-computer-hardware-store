@@ -1,0 +1,26 @@
+<nb-layout >
+  <nb-layout-header></nb-layout-header>
+  <nb-layout-column>
+    <nb-card class="dialog-wrapper">
+      <nb-card-header>Регистрация</nb-card-header>
+      <nb-card-body>
+        <form (ngSubmit)="onRegister()">
+          <div class="log">
+            <label for="username">Логин</label>
+            <input nbInput id="username" [(ngModel)]="username" name="username" required>
+          </div>
+          <br>
+          <div>
+            <label for="password">Пароль</label>
+            <input nbInput id="password" type="password" [(ngModel)]="password" name="password" required>
+          </div>
+          <br>
+          <button nbButton status="primary" type="submit">Зарегистрироваться</button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </nb-layout-column>
+
+  <nb-layout-footer></nb-layout-footer>
+
+</nb-layout>

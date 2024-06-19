@@ -1,0 +1,33 @@
+
+<div class="search" >
+  <input type="text" [(ngModel)]="searchQuery"  placeholder="Поиск..." name="search">
+  <button  nbButton="hero" type="submit" status="succes" size="small"(click)="searchGoods()" >Найти</button>
+</div>
+<div class="sort">
+  <nb-select  placeholder="Select Showcase" (selectedChange)="onSortChange($event)" >
+    <nb-option value="">Сброс</nb-option>
+    <nb-option value="1">Сначала дорогие</nb-option>
+    <nb-option value="2">Сначала недорогие</nb-option>
+  </nb-select>
+</div>
+
+
+
+<div class="scroll">
+  <nb-card  class="card" *ngFor="let goods of goodsList">
+    <nb-card-body>
+      <font [size]="5"  class="name_goods">{{goods.name}}</font>
+        <img class="img_good" [src]="goods.imageUrl" alt="Good Image" >
+      <font [size]="4" class="description_goods">{{goods.description}} </font>
+<div class="price_button">
+  <font [size]="5" class="price"  >Цена: {{goods.price}}руб</font>
+  <button nbButton status="success" (click)="addToCart(goods)" >В корзину</button>
+</div>
+    </nb-card-body>
+  </nb-card>
+  </div>
+
+
+
+
+

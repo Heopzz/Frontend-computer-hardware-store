@@ -1,0 +1,32 @@
+<nb-layout>
+
+  <nb-layout-header >
+    <div class="buttons">
+    <button nbButton="hero" (click)="onAddProduct()">Добавить товар</button>
+    <button nbButton="hero" (click)="logout()"  >Выйти</button>
+  </div>
+  </nb-layout-header>
+
+
+  <nb-layout-column>
+
+      <div class="scroll">
+        <nb-card  class="card" *ngFor="let goods of goodsList">
+          <nb-card-body>
+            <font [size]="5"  class="name_goods">{{goods.name}}</font>
+              <img class="img_good" [src]="goods.imageUrl" alt="Good Image" >
+            <font [size]="4" class="description_goods">{{goods.description}} </font>
+      <div class="price_button">
+        <font [size]="5" class="price"  >Цена: {{goods.price}}руб</font>
+        <button nbButton status="danger" (click)="deleteGoods(goods.id)" >Удалить</button>
+      </div>
+          </nb-card-body>
+        </nb-card>
+        </div>
+
+  </nb-layout-column>
+
+</nb-layout>
+
+
+

@@ -1,0 +1,72 @@
+<nb-layout>
+<nb-layout-header>
+  <button  nbButton status="success" class="title_button" (click)="goToHome()">Вернуться на <br>главную</button>
+</nb-layout-header>
+
+
+<nb-layout-column>
+
+  <nb-card>
+    <nb-card-header>Корзина</nb-card-header>
+    <nb-card-body>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Товар</th>
+            <th>Название</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Дествие</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of cartItem">
+            <img [src]="item.imageUrl" alt="Good Image" width="100">
+            <td>{{ item.name }}</td>
+            <td>
+              <button nbButton status="info" (click)="decreaseQuantity(item)" >-</button>
+              <input class="imput" type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item)">
+              <button nbButton status="info" (click)="increaseQuantity(item)">+</button>
+            </td>
+            <td>{{ item.price | currency:'RUB': 'symbol':'1.2-2' }}</td>
+            <td>
+              <button nbButton status="danger" (click)="removeItem(item.id)">Удалить</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total">
+        <h4>Всего к оплате: {{ getTotal() | currency:'RUB': 'symbol':'1.2-2' }}</h4>
+      </div>
+    </nb-card-body>
+    <nb-card-footer>
+      <button nbButton status="primary" (click)="placeOrder()">Оформить заказ</button>
+      <button nbButton status="warning" (click)="clearCart()">Очистить корзину</button>
+    </nb-card-footer>
+  </nb-card>
+
+
+
+  <ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+      <nb-card-header>Подтверждение заказа</nb-card-header>
+      <nb-card-body>
+        <p>Ваш заказ успешно оформлен!</p>
+        <p>Номер заказа: {{ data.orderId }}</p>
+        <p>Запомните или сохраните номер заказа<br>для оплаты и получения товара в магазине</p>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="primary" (click)="ref.close()">Закрыть</button>
+      </nb-card-footer>
+    </nb-card>
+</ng-template>
+</nb-layout-column>
+
+
+
+
+
+
+</nb-layout>
+
+
